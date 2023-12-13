@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FISHPNOD</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.americanoceans.org/wp-content/uploads/2021/08/What-boundaries-define-an-ocean.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+        }
+
+        #background {
+            position: relative;
+            width: 100%;
+            height: 800px;
+        }
+
+        #shark {
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            width: 298px;
+            height: 149px; 
+            animation: Shark 1s linear infinite;
+            transform: scaleX(1);
+        }
+
+        @keyframes Shark {
+            0% { left: 100px; top: 200px; transform: scaleX(1); }
+            25% { left: 300px; top: 500px; }
+            50% { left: 900px; top: 200px; }
+            75% { left: 500px; top: 200px; }
+            100% { left: 100px; top: 200px; transform: scaleX(-1); }
+        }
+        #fish {
+            position: absolute;
+            left: 500px;
+            top: 300px;
+            width: 45px;
+            height: 149px; 
+            animation: fish 3s linear infinite;
+            transform: scaleX(2);
+        }
+        @keyframes fish {
+            0% { left: 100px; top: 500px; transform: scaleX(1); }
+            25% { left: 350px; top: 200px; }
+            50% { left: 900px; top: 200px; }
+            75% { left: 500px; top: 200px; }
+            100% { left: 100px; top: 500px; transform: scaleX(-1); }
+        }
+        #squid {
+            position: absolute;
+            left: 500px;
+            top: 300px;
+            width: 45px;
+            height: 149px; 
+            animation: squid 5s linear infinite;
+            transform: scaleX(2);
+        }
+        @keyframes squid {
+            0% { left: 300px; top: 500px; } 
+            50% { left: 300px; top: 100px; }
+            100% { left: 300px; top: 500px; }            
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="background">
+    <div id="shark"><img src="https://pngimg.com/d/shark_PNG18831.png" width="298" height="149" alt="Shark Image"></div>
+    <div id="fish"><img src="https://clipart-library.com/images/rTjrokB6c.png" width="100" height="100" alt="Fish Image"></div>
+    <div id="squid"><img src="https://i.pinimg.com/originals/be/f7/2b/bef72b11f856376c034c6e82f381305c.png" width="100" height="100" alt="Squid Image"></div>
+</div>
+
+</body>
+</html>

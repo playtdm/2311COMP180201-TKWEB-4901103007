@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUẢN LÝ SẢN PHẨM</title>
+    <style>
+        body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: Times new roman, Arial;
+    margin: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#app-form {
+    margin-bottom: 20px;
+}
+
+#app-form input[type="text"] {
+    padding: 5px;
+    width: 300px;
+}
+
+#app-form button {
+    padding: 5px 10px;
+    background-color: #443beb;
+    color: white;
+    border: 1;
+    cursor: pointer;
+}
+
+#app-list li {
+    margin-bottom: 10px;
+}
+
+#app-list button {
+    margin-left: 10px;
+    color: #f50223;
+}
+    </style>
+</head>
+<body>
+    <h1>QUẢN LÝ SẢN PHẨM</h1>
+
+    <form id="app-form">
+        <input type="text" id="app-name" placeholder="Nhập sản phẩm">
+        <button type="submit">Add</button>
+    </form>
+    
+    <ul id="app-list"></ul>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('app-form');
+    const appNameInput = document.getElementById('app-name');
+    const appList = document.getElementById('app-list');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const appName = appNameInput.value;
+        if (appName) {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${appName}</span>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            `;
+            appList.appendChild(li);
+
+            appNameInput.value = "";
+        }
+    });
+
+    appList.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.classList.contains('edit')) {
+            const li = target.closest('li');
+            const appName = li.getElementsByTagName('span')[0].innerText;
+            const newAppName = prompt('Nhập tên mới cho sản phẩm', appName);
+            if (newAppName) {
+                li.getElementsByTagName('span')[0].innerText = newAppName;
+            }
+        } else if (target.classList.contains('delete')) {
+            const li = target.closest('li');
+            li.remove();
+        }
+    });
+});
+    </script>
+</body>
+</html>
